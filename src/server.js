@@ -3,8 +3,8 @@ const body_parser = require("body-parser");
 const app = express();
 // const cors = require("cors");
 const morgan = require("morgan");
-const men_router = require("./men/men.router");
-const women_router = require("./women/women.router")
+const men_router = require("./resources/men/men.router");
+const women_router = require("./resources/women/women.router")
 
 
 // middlewares
