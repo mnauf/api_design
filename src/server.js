@@ -2,11 +2,16 @@ const express = require("express");
 const body_parser = require("body-parser");
 const app = express();
 // const cors = require("cors");
+const mongoose = require("mongoose")
 const morgan = require("morgan");
 const men_router = require("./resources/men/men.router");
 const women_router = require("./resources/women/women.router")
 
+const db = "mongodb+srv://mnaufil:virufy@cluster0-wuuzb.mongodb.net/test?retryWrites=true&w=majority";
 
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+    console.log("connected to mongodb");
+});
 // middlewares
 app.use(morgan("dev")); //logging
 app.use(body_parser.urlencoded({ extended: true })); // allows urlencoded parameters in request
