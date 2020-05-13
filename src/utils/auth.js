@@ -48,7 +48,7 @@ const protect = model => async (req, res, next) => {
         return res.status(401).end()
       }
     console.log("Payload: ",payload);
-    const user = model.findOne({"email":payload.email})
+    const user = await model.findOne({"email":payload.email})
       .select('-password')
       .lean()
       .exec()
